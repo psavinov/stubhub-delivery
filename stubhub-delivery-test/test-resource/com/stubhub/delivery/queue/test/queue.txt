@@ -1,0 +1,4 @@
+SHIP001,employee1,0
+SHIP002,employee2,0
+SHIP005,employee1,1
+SHIP008,employee1,0
