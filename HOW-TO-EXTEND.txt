@@ -1,0 +1,25 @@
+Right now there are 4 possible modularization points:
+
+	1) LogFactoryProvider
+	2) DestinationFactoryProvider
+	3) ParcelFactoryProvider
+	4) DeliveryQueueProvider
+
+All of them use dependency injector to inject LogFactory, DestinationFactory,
+ParcelFactory and DeliveryQueue respectively.
+To override any of these it is necessary to create @Injectable-annotated class
+which implements corresponding interface and has ranking > 1.
+For example:
+
+	@Injectable(type = LogFactory.class, ranking = 2)
+	public final class CustomLogFactory implements LogFactory {
+
+		@Override
+		public Log getLog(String name) {
+			return new CustomLogImpl(name);
+		}
+
+	}
+
+To override processing logic it is necessary to provide new implementation for
+the DeliveryQueue interface.

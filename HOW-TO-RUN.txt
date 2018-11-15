@@ -1,0 +1,36 @@
+Prerequisites:
+	- JDK 8 is installed and properly configured (I used Oracle's JDK 1.8.0_92)
+	- Maven 3.0+ is installed and properly configured (I used Maven 3.3.9)
+
+Install, test, run
+	In the repository root execute the following commands:
+
+	    chmod +x do  (run this only on UNIX-like systems)
+
+	    ./do install
+	    ./do test    
+
+	Assert that all the tests pass and execute the following command:
+
+	    ./do run
+	    
+	! On Windows run "do.cmd" script insteadof "./do" command
+
+	The following command line options are available for the simulation:
+
+		Number of simulation threads(parcels sources):
+			-Ddelivery.simulation.thread.count=1
+
+		Time of simulation threads work, in seconds):
+			-Ddelivery.simulation.time.seconds=15
+
+		Number of randomly initialized destinations:
+			-Ddelivery.simulation.destination.count=5
+
+	When the following line appears, program is ready to use:
+
+	    [INFO] --- exec-maven-plugin:1.6.0:exec (default-cli) @ delivery ---
+
+	Here you can use standard input to enter some predefined data or just
+	press enter to launch the simulation with some random data, by default
+	simulation takes 15 seconds.
